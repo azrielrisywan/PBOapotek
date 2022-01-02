@@ -382,7 +382,9 @@ private void reset(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Obat().setVisible(true);
+                Obat obat = new Obat();
+                obat.setVisible(true);
+                obat.setLocationRelativeTo(null);
             }
         });
     }
