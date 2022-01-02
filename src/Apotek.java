@@ -65,11 +65,11 @@ public class Apotek extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        tambahObat = new javax.swing.JMenuItem();
+        menuObat = new javax.swing.JMenuItem();
         tambahKaryawan = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuKaryawan = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        tambahTransaksi = new javax.swing.JMenuItem();
+        menuTransaksi = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -154,40 +154,40 @@ public class Apotek extends javax.swing.JFrame {
 
         jMenu1.setText("Obat");
 
-        tambahObat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        tambahObat.setText("tambah obat");
-        tambahObat.addActionListener(new java.awt.event.ActionListener() {
+        menuObat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuObat.setText("tambah obat");
+        menuObat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambahObatActionPerformed(evt);
+                menuObatActionPerformed(evt);
             }
         });
-        jMenu1.add(tambahObat);
+        jMenu1.add(menuObat);
 
         menuBar.add(jMenu1);
 
         tambahKaryawan.setText("Karyawan");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("tambah karyawan");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuKaryawan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuKaryawan.setText("tambah karyawan");
+        menuKaryawan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuKaryawanActionPerformed(evt);
             }
         });
-        tambahKaryawan.add(jMenuItem3);
+        tambahKaryawan.add(menuKaryawan);
 
         menuBar.add(tambahKaryawan);
 
         jMenu4.setText("Transaksi");
 
-        tambahTransaksi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        tambahTransaksi.setText("tambah transaksi");
-        tambahTransaksi.addActionListener(new java.awt.event.ActionListener() {
+        menuTransaksi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuTransaksi.setText("tambah transaksi");
+        menuTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambahTransaksiActionPerformed(evt);
+                menuTransaksiActionPerformed(evt);
             }
         });
-        jMenu4.add(tambahTransaksi);
+        jMenu4.add(menuTransaksi);
 
         menuBar.add(jMenu4);
 
@@ -338,17 +338,17 @@ public class Apotek extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_reset_btnActionPerformed
 
-    private void tambahObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahObatActionPerformed
+    private void menuObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuObatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tambahObatActionPerformed
+    }//GEN-LAST:event_menuObatActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKaryawanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuKaryawanActionPerformed
 
-    private void tambahTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahTransaksiActionPerformed
+    private void menuTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTransaksiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tambahTransaksiActionPerformed
+    }//GEN-LAST:event_menuTransaksiActionPerformed
 private void reset(){
     id_obat.setText("");
     nama_obat.setText("");
@@ -407,18 +407,18 @@ private void reset(){
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jenis;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem menuKaryawan;
+    private javax.swing.JMenuItem menuObat;
+    private javax.swing.JMenuItem menuTransaksi;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField publisher;
     private javax.swing.JButton reset_btn;
     private javax.swing.JTable tabel;
     private javax.swing.JMenu tambahKaryawan;
-    private javax.swing.JMenuItem tambahObat;
-    private javax.swing.JMenuItem tambahTransaksi;
     private javax.swing.JButton tambahbtn;
     // End of variables declaration//GEN-END:variables
 
