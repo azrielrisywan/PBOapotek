@@ -43,37 +43,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Karyawan"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuKaryawan">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+K"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="tambah karyawan"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuKaryawanActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tambahKaryawanMouseClicked"/>
+          </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="tambahTransaksi">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transaksi"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuTransaksi">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+T"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="tambah transaksi"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTransaksiActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tambahTransaksiMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>

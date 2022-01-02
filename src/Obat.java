@@ -27,7 +27,7 @@ public class Obat extends javax.swing.JFrame {
     DefaultTableModel model;
     public Obat() {
         initComponents();
-        String [] judul ={"ID Obat", "Nama Obat", "Expired", "Publisher", "Jenis Obat"};
+        String [] judul ={"Nama Obat", "Expired", "Publisher", "Jenis Obat"};
         model = new DefaultTableModel (judul,0);
         tabel.setModel(model);
         tampilkan();
@@ -66,9 +66,7 @@ public class Obat extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         dashboard = new javax.swing.JMenu();
         tambahKaryawan = new javax.swing.JMenu();
-        menuKaryawan = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        menuTransaksi = new javax.swing.JMenuItem();
+        tambahTransaksi = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -160,30 +158,20 @@ public class Obat extends javax.swing.JFrame {
         menuBar.add(dashboard);
 
         tambahKaryawan.setText("Karyawan");
-
-        menuKaryawan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuKaryawan.setText("tambah karyawan");
-        menuKaryawan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuKaryawanActionPerformed(evt);
+        tambahKaryawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambahKaryawanMouseClicked(evt);
             }
         });
-        tambahKaryawan.add(menuKaryawan);
-
         menuBar.add(tambahKaryawan);
 
-        jMenu4.setText("Transaksi");
-
-        menuTransaksi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuTransaksi.setText("tambah transaksi");
-        menuTransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTransaksiActionPerformed(evt);
+        tambahTransaksi.setText("Transaksi");
+        tambahTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambahTransaksiMouseClicked(evt);
             }
         });
-        jMenu4.add(menuTransaksi);
-
-        menuBar.add(jMenu4);
+        menuBar.add(tambahTransaksi);
 
         setJMenuBar(menuBar);
 
@@ -292,7 +280,7 @@ public class Obat extends javax.swing.JFrame {
             // TODO add your handling code here:
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            cn.createStatement().executeUpdate("update obat set nama_obat = '"+nama_obat.getText()+"', expired = '"+expired.getText()+"', publisher = '"+publisher.getText()+"', jenis = '"+jenis.getText()+"' where id_obat ='"+id_obat.getText()+"'");
+            cn.createStatement().executeUpdate("update obat set nama_obat = '"+nama_obat.getText()+"', expired = '"+expired.getText()+"', publisher = '"+publisher.getText()+"', jenis = '"+jenis.getText()+"' where id ='"+id_obat.getText()+"'");
             tampilkan();
             reset();
         } catch (SQLException ex) {
@@ -318,7 +306,7 @@ public class Obat extends javax.swing.JFrame {
             // TODO add your handling code here:
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            cn.createStatement().executeUpdate("delete from obat where id_obat ='"+id_obat.getText()+"' ");
+            cn.createStatement().executeUpdate("delete from obat where id ='"+id_obat.getText()+"' ");
             tampilkan();
             reset();
         } catch (SQLException ex) {
@@ -332,17 +320,30 @@ public class Obat extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_reset_btnActionPerformed
 
-    private void menuKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKaryawanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuKaryawanActionPerformed
-
-    private void menuTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTransaksiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuTransaksiActionPerformed
-
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
         // TODO add your handling code here:
+        Dashboard db = new Dashboard();
+        db.setVisible(true);
+        db.setDefaultCloseOperation(Dashboard.DISPOSE_ON_CLOSE);
+        db.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_dashboardMouseClicked
+
+    private void tambahKaryawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahKaryawanMouseClicked
+        // TODO add your handling code here:
+        Karyawan k = new Karyawan();
+        k.setVisible(true);
+        k.setDefaultCloseOperation(Karyawan.DISPOSE_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_tambahKaryawanMouseClicked
+
+    private void tambahTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahTransaksiMouseClicked
+        // TODO add your handling code here:
+        Transaksi t = new Transaksi();
+        t.setVisible(true);
+        t.setDefaultCloseOperation(Transaksi.DISPOSE_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_tambahTransaksiMouseClicked
 private void reset(){
     id_obat.setText("");
     nama_obat.setText("");
@@ -400,19 +401,17 @@ private void reset(){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jenis;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem menuKaryawan;
-    private javax.swing.JMenuItem menuTransaksi;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField publisher;
     private javax.swing.JButton reset_btn;
     private javax.swing.JTable tabel;
     private javax.swing.JMenu tambahKaryawan;
+    private javax.swing.JMenu tambahTransaksi;
     private javax.swing.JButton tambahbtn;
     // End of variables declaration//GEN-END:variables
 
