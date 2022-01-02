@@ -225,8 +225,9 @@ public class Apotek extends javax.swing.JFrame {
 
     private void tambahbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahbtnActionPerformed
         try {
-            // TODO add your handling code here:
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/apotek", "root", "");
+            // TODO add your handling code here
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             cn.createStatement().executeUpdate ("INSERT INTO obat VALUES" + "('"+id_obat.getText()+"', '"+nama_obat.getText()+"', '"+expired.getText()+"', '"+publisher.getText()+"', '"+jenis.getText()+"')");
             tampilkan();
             reset();
@@ -238,7 +239,8 @@ public class Apotek extends javax.swing.JFrame {
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
         try {
             // TODO add your handling code here:
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/apotek", "root", "");
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             cn.createStatement().executeUpdate("update obat set nama_obat = '"+nama_obat.getText()+"', expired = '"+expired.getText()+"', publisher = '"+publisher.getText()+"', jenis = '"+jenis.getText()+"' where id_obat ='"+id_obat.getText()+"'");
             tampilkan();
             reset();
@@ -263,7 +265,8 @@ public class Apotek extends javax.swing.JFrame {
     private void hapus_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapus_btnActionPerformed
         try {
             // TODO add your handling code here:
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/apotek", "root", "");
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             cn.createStatement().executeUpdate("delete from obat where id_obat ='"+id_obat.getText()+"' ");
             tampilkan();
             reset();
@@ -348,12 +351,13 @@ private void reset(){
             model.removeRow(0);
         }
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/apotek", "root", "");
-             ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM obat");
-             while(rs.next()){
-                 String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
-                 model.addRow(data);
-             }
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM obat");
+            while(rs.next()){
+                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
+                model.addRow(data);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Apotek.class.getName()).log(Level.SEVERE, null, ex);
         }
