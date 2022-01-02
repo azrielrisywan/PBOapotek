@@ -334,6 +334,7 @@ public class Obat extends javax.swing.JFrame {
         Karyawan k = new Karyawan();
         k.setVisible(true);
         k.setDefaultCloseOperation(Karyawan.DISPOSE_ON_CLOSE);
+        k.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_tambahKaryawanMouseClicked
 
@@ -342,6 +343,7 @@ public class Obat extends javax.swing.JFrame {
         Transaksi t = new Transaksi();
         t.setVisible(true);
         t.setDefaultCloseOperation(Transaksi.DISPOSE_ON_CLOSE);
+        t.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_tambahTransaksiMouseClicked
 private void reset(){
