@@ -18,14 +18,14 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-public class Apotek extends javax.swing.JFrame {
+public class Transaksi extends javax.swing.JFrame {
     
 
     /**
-     * Creates new form Apotek
+     * Creates new form Obat
      */
     DefaultTableModel model;
-    public Apotek() {
+    public Transaksi() {
         initComponents();
         String [] judul ={"ID Obat", "Nama Obat", "Expired", "Publisher", "Jenis Obat"};
         model = new DefaultTableModel (judul,0);
@@ -64,8 +64,7 @@ public class Apotek extends javax.swing.JFrame {
         jenis = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        menuObat = new javax.swing.JMenuItem();
+        dashboard = new javax.swing.JMenu();
         tambahKaryawan = new javax.swing.JMenu();
         menuKaryawan = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -152,18 +151,13 @@ public class Apotek extends javax.swing.JFrame {
 
         menuBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jMenu1.setText("Obat");
-
-        menuObat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuObat.setText("tambah obat");
-        menuObat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuObatActionPerformed(evt);
+        dashboard.setText("Dashboard");
+        dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardMouseClicked(evt);
             }
         });
-        jMenu1.add(menuObat);
-
-        menuBar.add(jMenu1);
+        menuBar.add(dashboard);
 
         tambahKaryawan.setText("Karyawan");
 
@@ -270,7 +264,7 @@ public class Apotek extends javax.swing.JFrame {
                     .addComponent(reset_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(509, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -302,7 +296,7 @@ public class Apotek extends javax.swing.JFrame {
             tampilkan();
             reset();
         } catch (SQLException ex) {
-            Logger.getLogger(Apotek.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_edit_btnActionPerformed
 
@@ -328,7 +322,7 @@ public class Apotek extends javax.swing.JFrame {
             tampilkan();
             reset();
         } catch (SQLException ex) {
-            Logger.getLogger(Apotek.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_hapus_btnActionPerformed
@@ -338,10 +332,6 @@ public class Apotek extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_reset_btnActionPerformed
 
-    private void menuObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuObatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuObatActionPerformed
-
     private void menuKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKaryawanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuKaryawanActionPerformed
@@ -349,6 +339,10 @@ public class Apotek extends javax.swing.JFrame {
     private void menuTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTransaksiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuTransaksiActionPerformed
+
+    private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboardMouseClicked
 private void reset(){
     id_obat.setText("");
     nama_obat.setText("");
@@ -373,25 +367,27 @@ private void reset(){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Apotek.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Apotek.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Apotek.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Apotek.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Obat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Apotek().setVisible(true);
+                new Obat().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu dashboard;
     private javax.swing.JButton edit_btn;
     private javax.swing.JTextField expired;
     private javax.swing.JButton hapus_btn;
@@ -403,7 +399,6 @@ private void reset(){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
@@ -412,7 +407,6 @@ private void reset(){
     private javax.swing.JTextField jenis;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuKaryawan;
-    private javax.swing.JMenuItem menuObat;
     private javax.swing.JMenuItem menuTransaksi;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField publisher;
@@ -438,7 +432,7 @@ private void reset(){
                 model.addRow(data);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Apotek.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
        
         

@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5fd7503-d247-47c8-ac85-8abdd4ec8a04" name="Default Changelist" comment="" />
+    <list default="true" id="e5fd7503-d247-47c8-ac85-8abdd4ec8a04" name="Default Changelist" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +56,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Apotek" />
@@ -61,6 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641117614380</updated>
       <workItem from="1641117615631" duration="2597000" />
+      <workItem from="1641132557896" duration="2047000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1641117667538</created>
@@ -69,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641117667538</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1641132770547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641132770548</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,6 +116,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
