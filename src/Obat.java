@@ -386,6 +386,7 @@ private void reset(){
             public void run() {
                 Obat obat = new Obat();
                 obat.setVisible(true);
+                obat.setLocationRelativeTo(null);
             }
         });
     }

@@ -386,6 +386,7 @@ private void reset(){
             public void run() {
                 Transaksi t = new Transaksi();
                 t.setVisible(true);
+                t.setLocationRelativeTo(null);
             }
         });
     }
