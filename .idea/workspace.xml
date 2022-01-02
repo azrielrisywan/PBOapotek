@@ -6,14 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="e5fd7503-d247-47c8-ac85-8abdd4ec8a04" name="Default Changelist" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Apotek.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Apotek.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dashboard.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Karyawan.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Karyawan.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Karyawan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Karyawan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Obat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transaksi.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaksi.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transaksi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaksi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +56,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunManager">
-    <configuration name="Apotek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Apotek" />
+    <configuration name="Obat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Obat" />
       <module name="Apotek" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -71,7 +81,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Apotek" />
+        <item itemvalue="Application.Obat" />
       </list>
     </recent_temporary>
   </component>
@@ -84,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641117614380</updated>
       <workItem from="1641117615631" duration="2597000" />
-      <workItem from="1641132557896" duration="2047000" />
+      <workItem from="1641132557896" duration="6827000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1641117667538</created>

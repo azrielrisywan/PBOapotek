@@ -36,7 +36,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelDataTransaksi = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menuBar = new javax.swing.JMenuBar();
         menuObat = new javax.swing.JMenu();
         menuKaryawan = new javax.swing.JMenu();
         menuTransaksi = new javax.swing.JMenu();
@@ -103,15 +103,25 @@ public class Dashboard extends javax.swing.JFrame {
                 menuObatMouseClicked(evt);
             }
         });
-        jMenuBar1.add(menuObat);
+        menuBar.add(menuObat);
 
         menuKaryawan.setText("Karyawan");
-        jMenuBar1.add(menuKaryawan);
+        menuKaryawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuKaryawanMouseClicked(evt);
+            }
+        });
+        menuBar.add(menuKaryawan);
 
         menuTransaksi.setText("Transaksi");
-        jMenuBar1.add(menuTransaksi);
+        menuTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuTransaksiMouseClicked(evt);
+            }
+        });
+        menuBar.add(menuTransaksi);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,7 +168,30 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void menuObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuObatMouseClicked
         // TODO add your handling code here:
+        Obat obat = new Obat();
+        obat.setVisible(true);
+        obat.setDefaultCloseOperation(Obat.DISPOSE_ON_CLOSE);
+        obat.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_menuObatMouseClicked
+
+    private void menuKaryawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKaryawanMouseClicked
+        // TODO add your handling code here:
+        Karyawan karyawan = new Karyawan();
+        karyawan.setVisible(true);
+        karyawan.setDefaultCloseOperation(Karyawan.DISPOSE_ON_CLOSE);
+        karyawan.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_menuKaryawanMouseClicked
+
+    private void menuTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuTransaksiMouseClicked
+        // TODO add your handling code here:
+        Transaksi tr = new Transaksi();
+        tr.setVisible(true);
+        tr.setDefaultCloseOperation(Transaksi.DISPOSE_ON_CLOSE);
+        tr.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_menuTransaksiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,7 +223,10 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                Dashboard d = new Dashboard();
+                d.setVisible(true);
+                d.setDefaultCloseOperation(Dashboard.DISPOSE_ON_CLOSE);
+                d.setLocationRelativeTo(null);
             }
         });
     }
@@ -201,10 +237,10 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuKaryawan;
     private javax.swing.JMenu menuObat;
     private javax.swing.JMenu menuTransaksi;
@@ -212,4 +248,5 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTable tabelDataObat;
     private javax.swing.JTable tabelDataTransaksi;
     // End of variables declaration//GEN-END:variables
+    // eeeeeeeee
 }

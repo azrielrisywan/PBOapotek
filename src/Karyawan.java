@@ -65,8 +65,8 @@ public class Karyawan extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         dashboard = new javax.swing.JMenu();
-        tambahKaryawan = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        tambahObat = new javax.swing.JMenu();
+        tambahTransaksi = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -157,11 +157,21 @@ public class Karyawan extends javax.swing.JFrame {
         });
         menuBar.add(dashboard);
 
-        tambahKaryawan.setText("Obat");
-        menuBar.add(tambahKaryawan);
+        tambahObat.setText("Obat");
+        tambahObat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambahObatMouseClicked(evt);
+            }
+        });
+        menuBar.add(tambahObat);
 
-        jMenu4.setText("Transaksi");
-        menuBar.add(jMenu4);
+        tambahTransaksi.setText("Transaksi");
+        tambahTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambahTransaksiMouseClicked(evt);
+            }
+        });
+        menuBar.add(tambahTransaksi);
 
         setJMenuBar(menuBar);
 
@@ -312,7 +322,30 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
         // TODO add your handling code here:
+        Dashboard d = new Dashboard();
+        d.setVisible(true);
+        d.setDefaultCloseOperation(Dashboard.DISPOSE_ON_CLOSE);
+        d.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_dashboardMouseClicked
+
+    private void tambahObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahObatMouseClicked
+        // TODO add your handling code here:
+        Obat o = new Obat();
+        o.setVisible(true);
+        o.setDefaultCloseOperation(Obat.DISPOSE_ON_CLOSE);
+        o.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_tambahObatMouseClicked
+
+    private void tambahTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahTransaksiMouseClicked
+        // TODO add your handling code here:
+        Transaksi t = new Transaksi();
+        t.setVisible(true);
+        t.setDefaultCloseOperation(Transaksi.DISPOSE_ON_CLOSE);
+        t.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_tambahTransaksiMouseClicked
 private void reset(){
     id_obat.setText("");
     nama_obat.setText("");
@@ -351,7 +384,10 @@ private void reset(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Obat().setVisible(true);
+                Karyawan k = new Karyawan();
+                k.setVisible(true);
+                k.setLocationRelativeTo(null);
+                k.setDefaultCloseOperation(Karyawan.DISPOSE_ON_CLOSE);
             }
         });
     }
@@ -370,7 +406,6 @@ private void reset(){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -380,7 +415,8 @@ private void reset(){
     private javax.swing.JTextField publisher;
     private javax.swing.JButton reset_btn;
     private javax.swing.JTable tabel;
-    private javax.swing.JMenu tambahKaryawan;
+    private javax.swing.JMenu tambahObat;
+    private javax.swing.JMenu tambahTransaksi;
     private javax.swing.JButton tambahbtn;
     // End of variables declaration//GEN-END:variables
 
@@ -405,4 +441,5 @@ private void reset(){
        
         
     }
+    // eeeeee
 }

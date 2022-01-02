@@ -65,10 +65,8 @@ public class Transaksi extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         dashboard = new javax.swing.JMenu();
+        tambahObat = new javax.swing.JMenu();
         tambahKaryawan = new javax.swing.JMenu();
-        menuKaryawan = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        menuTransaksi = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -147,7 +145,7 @@ public class Transaksi extends javax.swing.JFrame {
         jLabel6.setText("Jenis ");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Data Obat");
+        jLabel7.setText("Data Transaksi");
 
         menuBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -159,31 +157,21 @@ public class Transaksi extends javax.swing.JFrame {
         });
         menuBar.add(dashboard);
 
+        tambahObat.setText("Obat");
+        tambahObat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambahObatMouseClicked(evt);
+            }
+        });
+        menuBar.add(tambahObat);
+
         tambahKaryawan.setText("Karyawan");
-
-        menuKaryawan.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuKaryawan.setText("tambah karyawan");
-        menuKaryawan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuKaryawanActionPerformed(evt);
+        tambahKaryawan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tambahKaryawanMouseClicked(evt);
             }
         });
-        tambahKaryawan.add(menuKaryawan);
-
         menuBar.add(tambahKaryawan);
-
-        jMenu4.setText("Transaksi");
-
-        menuTransaksi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        menuTransaksi.setText("tambah transaksi");
-        menuTransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuTransaksiActionPerformed(evt);
-            }
-        });
-        jMenu4.add(menuTransaksi);
-
-        menuBar.add(jMenu4);
 
         setJMenuBar(menuBar);
 
@@ -207,8 +195,8 @@ public class Transaksi extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
@@ -332,17 +320,32 @@ public class Transaksi extends javax.swing.JFrame {
         reset();
     }//GEN-LAST:event_reset_btnActionPerformed
 
-    private void menuKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuKaryawanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuKaryawanActionPerformed
-
-    private void menuTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTransaksiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuTransaksiActionPerformed
-
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
         // TODO add your handling code here:
+        Dashboard d = new Dashboard();
+        d.setVisible(true);
+        d.setDefaultCloseOperation(Dashboard.DISPOSE_ON_CLOSE);
+        d.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_dashboardMouseClicked
+
+    private void tambahObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahObatMouseClicked
+        // TODO add your handling code here:
+        Obat o = new Obat();
+        o.setVisible(true);
+        o.setDefaultCloseOperation(Obat.DISPOSE_ON_CLOSE);
+        o.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_tambahObatMouseClicked
+
+    private void tambahKaryawanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tambahKaryawanMouseClicked
+        // TODO add your handling code here:
+        Karyawan k = new Karyawan();
+        k.setVisible(true);
+        k.setDefaultCloseOperation(Karyawan.DISPOSE_ON_CLOSE);
+        k.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_tambahKaryawanMouseClicked
 private void reset(){
     id_obat.setText("");
     nama_obat.setText("");
@@ -381,7 +384,8 @@ private void reset(){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Obat().setVisible(true);
+                Transaksi t = new Transaksi();
+                t.setVisible(true);
             }
         });
     }
@@ -400,19 +404,17 @@ private void reset(){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jenis;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem menuKaryawan;
-    private javax.swing.JMenuItem menuTransaksi;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField publisher;
     private javax.swing.JButton reset_btn;
     private javax.swing.JTable tabel;
     private javax.swing.JMenu tambahKaryawan;
+    private javax.swing.JMenu tambahObat;
     private javax.swing.JButton tambahbtn;
     // End of variables declaration//GEN-END:variables
 
@@ -437,4 +439,5 @@ private void reset(){
        
         
     }
+    // eeeeee
 }

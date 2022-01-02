@@ -39,15 +39,21 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dashboardMouseClicked"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="tambahKaryawan">
+        <Menu class="javax.swing.JMenu" name="tambahObat">
           <Properties>
             <Property name="text" type="java.lang.String" value="Obat"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tambahObatMouseClicked"/>
+          </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="tambahTransaksi">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transaksi"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tambahTransaksiMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
