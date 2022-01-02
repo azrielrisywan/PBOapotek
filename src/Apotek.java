@@ -42,6 +42,9 @@ public class Apotek extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,6 +63,17 @@ public class Apotek extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jenis = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        menuBar = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        tambahObat = new javax.swing.JMenuItem();
+        tambahKaryawan = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        tambahTransaksi = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +150,49 @@ public class Apotek extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Data Obat");
 
+        menuBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jMenu1.setText("Obat");
+
+        tambahObat.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        tambahObat.setText("tambah obat");
+        tambahObat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahObatActionPerformed(evt);
+            }
+        });
+        jMenu1.add(tambahObat);
+
+        menuBar.add(jMenu1);
+
+        tambahKaryawan.setText("Karyawan");
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem3.setText("tambah karyawan");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        tambahKaryawan.add(jMenuItem3);
+
+        menuBar.add(tambahKaryawan);
+
+        jMenu4.setText("Transaksi");
+
+        tambahTransaksi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        tambahTransaksi.setText("tambah transaksi");
+        tambahTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahTransaksiActionPerformed(evt);
+            }
+        });
+        jMenu4.add(tambahTransaksi);
+
+        menuBar.add(jMenu4);
+
+        setJMenuBar(menuBar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,7 +229,7 @@ public class Apotek extends javax.swing.JFrame {
                             .addComponent(expired, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(id_obat, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nama_obat, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 185, Short.MAX_VALUE)))
+                        .addGap(0, 196, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -213,7 +270,7 @@ public class Apotek extends javax.swing.JFrame {
                     .addComponent(reset_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(553, Short.MAX_VALUE))
+                .addContainerGap(509, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,6 +337,18 @@ public class Apotek extends javax.swing.JFrame {
         // TODO add your handling code here:
         reset();
     }//GEN-LAST:event_reset_btnActionPerformed
+
+    private void tambahObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahObatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tambahObatActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void tambahTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahTransaksiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tambahTransaksiActionPerformed
 private void reset(){
     id_obat.setText("");
     nama_obat.setText("");
@@ -334,12 +403,22 @@ private void reset(){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jenis;
+    private javax.swing.JMenuBar menuBar;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField publisher;
     private javax.swing.JButton reset_btn;
     private javax.swing.JTable tabel;
+    private javax.swing.JMenu tambahKaryawan;
+    private javax.swing.JMenuItem tambahObat;
+    private javax.swing.JMenuItem tambahTransaksi;
     private javax.swing.JButton tambahbtn;
     // End of variables declaration//GEN-END:variables
 
