@@ -1,3 +1,12 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,12 +17,58 @@
  * @author Legion Y530
  */
 public class Dashboard extends javax.swing.JFrame {
-
+    
+    DefaultTableModel modelTableObat;
+    DefaultTableModel modelTableKaryawan;
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        String[] judulTabelObat = {"Nama Obat", "Expired", "Publisher", "Jenis Obat"};
+        String[] judulTabelKaryawan = {"ID Karyawan", "Nama Karyawan", "Kontak", "Alamat"};
+        modelTableKaryawan = new DefaultTableModel(judulTabelKaryawan, 0);
+        modelTableObat = new DefaultTableModel(judulTabelObat, 0);
+        tabelDataObat.setModel(modelTableObat);
+        tabelDataKaryawan.setModel(modelTableKaryawan);
+        tampilkanDataObat();
+        tampilkanDataKaryawan();
+    }
+    
+    private void tampilkanDataObat() {
+        int row = tabelDataObat.getRowCount();
+        for (int a = 0; a<row; a++){
+            modelTableObat.removeRow(0);
+        }
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM obat");
+            while(rs.next()){
+                String data []= {rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
+                modelTableObat.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void tampilkanDataKaryawan() {
+        int row = tabelDataKaryawan.getRowCount();
+        for (int a = 0; a<row; a++){
+            modelTableKaryawan.removeRow(0);
+        }
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM karyawan");
+            while(rs.next()){
+                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)};
+                modelTableKaryawan.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
