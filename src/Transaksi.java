@@ -30,40 +30,27 @@ public class Transaksi extends javax.swing.JFrame {
     public Transaksi() {
         initComponents();
         this.bindData();
+        listObatTersedia.setVisible(true);
     }
     
-    private ArrayList getObats() {
-        ArrayList obats = new ArrayList();
-        String sql = "SELECT nama_obat FROM obat";
-        try {
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            ResultSet rs = cn.createStatement().executeQuery(sql);
-            while (rs.next()) {
-                obats.add(rs.getString("nama_obat"));
-            }
-         
-        } catch (SQLException ex) {
-            Logger.getLogger(Transaksi.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return obats;
-    }
     
     private void bindData() {
+        int row = listObatTersedia.getRowCount();
+        for (int a = 0; a<row; a++){
+            tableModel.removeRow(0);
+        }
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             ResultSet rs = cn.createStatement().executeQuery("SELECT id, nama_obat FROM obat");
             while(rs.next()){
-                String data []= {rs.getString(1),rs.getString(2)};
+                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)};
                 tableModel.addRow(data);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
         listObatTersedia.setModel(tableModel);
-        listObatTersedia.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listObatTersedia.setVisible(true);
     }
     
     private void searchFilter(String searchTerm) {
@@ -114,7 +101,7 @@ public class Transaksi extends javax.swing.JFrame {
         namaObatDetailTransaksi = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jumlahObatDetailTransaksi = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -191,6 +178,12 @@ public class Transaksi extends javax.swing.JFrame {
 
         jLabel1.setText("Cari");
 
+        idObatDetailTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idObatDetailTransaksiActionPerformed(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel8.setText("Obat Tersedia");
 
@@ -200,9 +193,9 @@ public class Transaksi extends javax.swing.JFrame {
 
         jLabel5.setText("jumlah");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jumlahObatDetailTransaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jumlahObatDetailTransaksiActionPerformed(evt);
             }
         });
 
@@ -309,7 +302,7 @@ public class Transaksi extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(idObatDetailTransaksi)
                                     .addComponent(namaObatDetailTransaksi)
-                                    .addComponent(jTextField4)
+                                    .addComponent(jumlahObatDetailTransaksi)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE))))))
                 .addContainerGap(133, Short.MAX_VALUE))
         );
@@ -343,7 +336,7 @@ public class Transaksi extends javax.swing.JFrame {
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jumlahObatDetailTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -407,9 +400,9 @@ public class Transaksi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_namaObatActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jumlahObatDetailTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jumlahObatDetailTransaksiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jumlahObatDetailTransaksiActionPerformed
 
     private void namaObatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namaObatKeyReleased
         // TODO add your handling code here:
@@ -425,6 +418,10 @@ public class Transaksi extends javax.swing.JFrame {
             namaObatDetailTransaksi.setText(listObatTersedia.getValueAt(i, 1).toString());
         }
     }//GEN-LAST:event_listObatTersediaMouseClicked
+
+    private void idObatDetailTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idObatDetailTransaksiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idObatDetailTransaksiActionPerformed
 private void reset(){
     //
 }
@@ -487,7 +484,7 @@ private void reset(){
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jumlahObatDetailTransaksi;
     private javax.swing.JTable listObatTersedia;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JTextField namaObat;
