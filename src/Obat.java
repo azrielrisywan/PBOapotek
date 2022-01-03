@@ -29,7 +29,7 @@ public class Obat extends javax.swing.JFrame {
         initComponents();
         String [] judul ={"Nama Obat", "Expired", "Publisher", "Jenis Obat"};
         model = new DefaultTableModel (judul,0);
-        tabel.setModel(model);
+        listObatTersedia.setModel(model);
         tampilkan();
     }
 
@@ -59,7 +59,7 @@ public class Obat extends javax.swing.JFrame {
         hapus_btn = new javax.swing.JButton();
         reset_btn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabel = new javax.swing.JTable();
+        listObatTersedia = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         jenis = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -123,7 +123,7 @@ public class Obat extends javax.swing.JFrame {
             }
         });
 
-        tabel.setModel(new javax.swing.table.DefaultTableModel(
+        listObatTersedia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -134,12 +134,12 @@ public class Obat extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
-        tabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        listObatTersedia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelMouseClicked(evt);
+                listObatTersediaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabel);
+        jScrollPane1.setViewportView(listObatTersedia);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Jenis ");
@@ -288,9 +288,9 @@ public class Obat extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_edit_btnActionPerformed
 
-    private void tabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMouseClicked
+    private void listObatTersediaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listObatTersediaMouseClicked
         // TODO add your handling code here:
-        int i = tabel.getSelectedRow();
+        int i = listObatTersedia.getSelectedRow();
         
         if(i>-1){
             id_obat.setText(model.getValueAt(i, 0).toString());
@@ -299,7 +299,7 @@ public class Obat extends javax.swing.JFrame {
             publisher.setText(model.getValueAt(i, 3).toString());
             jenis.setText(model.getValueAt(i, 4).toString());
         }
-    }//GEN-LAST:event_tabelMouseClicked
+    }//GEN-LAST:event_listObatTersediaMouseClicked
 
     private void hapus_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapus_btnActionPerformed
         try {
@@ -409,11 +409,11 @@ private void reset(){
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jenis;
+    private javax.swing.JTable listObatTersedia;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JTextField nama_obat;
     private javax.swing.JTextField publisher;
     private javax.swing.JButton reset_btn;
-    private javax.swing.JTable tabel;
     private javax.swing.JMenu tambahKaryawan;
     private javax.swing.JMenu tambahTransaksi;
     private javax.swing.JButton tambahbtn;
@@ -422,7 +422,7 @@ private void reset(){
    
 
     private void tampilkan() {
-        int row = tabel.getRowCount();
+        int row = listObatTersedia.getRowCount();
         for (int a = 0; a<row; a++){
             model.removeRow(0);
         }
@@ -431,7 +431,7 @@ private void reset(){
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM obat");
             while(rs.next()){
-                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
+                String data []= {rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
                 model.addRow(data);
             }
         } catch (SQLException ex) {
