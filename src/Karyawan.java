@@ -22,12 +22,12 @@ public class Karyawan extends javax.swing.JFrame {
     
 
     /**
-     * Creates new form Obat
+     * Creates new form Karyawan
      */
     DefaultTableModel model;
     public Karyawan() {
         initComponents();
-        String [] judul ={"ID Obat", "Nama Obat", "Expired", "Publisher", "Jenis Obat"};
+        String [] judul ={"ID Karyawan", "Nama Karyawan", "Kontak", "Alamat"};
         model = new DefaultTableModel (judul,0);
         tabel.setModel(model);
         tampilkan();
@@ -50,18 +50,16 @@ public class Karyawan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        id_obat = new javax.swing.JTextField();
-        nama_obat = new javax.swing.JTextField();
-        expired = new javax.swing.JTextField();
-        publisher = new javax.swing.JTextField();
+        idKaryawan = new javax.swing.JTextField();
+        namaKaryawan = new javax.swing.JTextField();
+        alamatKaryawan = new javax.swing.JTextField();
+        kontakKaryawan = new javax.swing.JTextField();
         tambahbtn = new javax.swing.JButton();
         edit_btn = new javax.swing.JButton();
         hapus_btn = new javax.swing.JButton();
         reset_btn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jenis = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         dashboard = new javax.swing.JMenu();
@@ -75,23 +73,29 @@ public class Karyawan extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("ID Obat ");
+        jLabel1.setText("ID ");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("APOTEK MAJU TERUS");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Nama Obat ");
+        jLabel3.setText("Nama");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Expired ");
+        jLabel4.setText("Alamat");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Publisher ");
+        jLabel5.setText("Kontak ");
 
-        nama_obat.addActionListener(new java.awt.event.ActionListener() {
+        idKaryawan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nama_obatActionPerformed(evt);
+                idKaryawanActionPerformed(evt);
+            }
+        });
+
+        namaKaryawan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namaKaryawanActionPerformed(evt);
             }
         });
 
@@ -140,9 +144,6 @@ public class Karyawan extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabel);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Jenis ");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Data Karyawan");
@@ -201,17 +202,15 @@ public class Karyawan extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jenis, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(publisher, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(expired, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(id_obat, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nama_obat, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 196, Short.MAX_VALUE)))
+                            .addComponent(kontakKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(alamatKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namaKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 223, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -224,27 +223,27 @@ public class Karyawan extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(id_obat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(idKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(jLabel7)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(nama_obat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namaKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(alamatKaryawan, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(expired, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(publisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addComponent(kontakKaryawan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tambahbtn)
                     .addComponent(edit_btn)
@@ -252,22 +251,22 @@ public class Karyawan extends javax.swing.JFrame {
                     .addComponent(reset_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nama_obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nama_obatActionPerformed
+    private void namaKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaKaryawanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nama_obatActionPerformed
+    }//GEN-LAST:event_namaKaryawanActionPerformed
 
     private void tambahbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahbtnActionPerformed
         try {
             // TODO add your handling code here
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            cn.createStatement().executeUpdate ("INSERT INTO obat VALUES" + "('"+id_obat.getText()+"', '"+nama_obat.getText()+"', '"+expired.getText()+"', '"+publisher.getText()+"', '"+jenis.getText()+"')");
+            cn.createStatement().executeUpdate ("INSERT INTO karyawan VALUES" + "('"+idKaryawan.getText()+"', '"+namaKaryawan.getText()+"','"+kontakKaryawan.getText()+"' , '"+alamatKaryawan.getText()+"')");
             tampilkan();
             reset();
         } catch (SQLException ex) {
@@ -280,7 +279,7 @@ public class Karyawan extends javax.swing.JFrame {
             // TODO add your handling code here:
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            cn.createStatement().executeUpdate("update obat set nama_obat = '"+nama_obat.getText()+"', expired = '"+expired.getText()+"', publisher = '"+publisher.getText()+"', jenis = '"+jenis.getText()+"' where id_obat ='"+id_obat.getText()+"'");
+            cn.createStatement().executeUpdate("update karyawan set nama = '"+namaKaryawan.getText()+"', alamat = '"+alamatKaryawan.getText()+"', kontak = '"+kontakKaryawan.getText()+"' where id ='"+idKaryawan.getText()+"'");
             tampilkan();
             reset();
         } catch (SQLException ex) {
@@ -293,11 +292,10 @@ public class Karyawan extends javax.swing.JFrame {
         int i = tabel.getSelectedRow();
         
         if(i>-1){
-            id_obat.setText(model.getValueAt(i, 0).toString());
-            nama_obat.setText(model.getValueAt(i, 1).toString());
-            expired.setText(model.getValueAt(i, 2).toString());
-            publisher.setText(model.getValueAt(i, 3).toString());
-            jenis.setText(model.getValueAt(i, 4).toString());
+            idKaryawan.setText(model.getValueAt(i, 0).toString());
+            namaKaryawan.setText(model.getValueAt(i, 1).toString());
+            alamatKaryawan.setText(model.getValueAt(i, 2).toString());
+            kontakKaryawan.setText(model.getValueAt(i, 3).toString());
         }
     }//GEN-LAST:event_tabelMouseClicked
 
@@ -306,7 +304,7 @@ public class Karyawan extends javax.swing.JFrame {
             // TODO add your handling code here:
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            cn.createStatement().executeUpdate("delete from obat where id_obat ='"+id_obat.getText()+"' ");
+            cn.createStatement().executeUpdate("delete from karyawan where id ='"+idKaryawan.getText()+"' ");
             tampilkan();
             reset();
         } catch (SQLException ex) {
@@ -346,12 +344,15 @@ public class Karyawan extends javax.swing.JFrame {
         t.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_tambahTransaksiMouseClicked
+
+    private void idKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idKaryawanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idKaryawanActionPerformed
 private void reset(){
-    id_obat.setText("");
-    nama_obat.setText("");
-    expired.setText("");
-    publisher.setText("");
-    jenis.setText("");
+    idKaryawan.setText("");
+    namaKaryawan.setText("");
+    alamatKaryawan.setText("");
+    kontakKaryawan.setText("");
 }
     /**
      * @param args the command line arguments
@@ -393,26 +394,24 @@ private void reset(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField alamatKaryawan;
     private javax.swing.JMenu dashboard;
     private javax.swing.JButton edit_btn;
-    private javax.swing.JTextField expired;
     private javax.swing.JButton hapus_btn;
-    private javax.swing.JTextField id_obat;
+    private javax.swing.JTextField idKaryawan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jenis;
+    private javax.swing.JTextField kontakKaryawan;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JTextField nama_obat;
-    private javax.swing.JTextField publisher;
+    private javax.swing.JTextField namaKaryawan;
     private javax.swing.JButton reset_btn;
     private javax.swing.JTable tabel;
     private javax.swing.JMenu tambahObat;
@@ -430,9 +429,9 @@ private void reset(){
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM obat");
+            ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM karyawan");
             while(rs.next()){
-                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
+                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)};
                 model.addRow(data);
             }
         } catch (SQLException ex) {
