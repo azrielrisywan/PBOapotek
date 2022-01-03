@@ -283,7 +283,7 @@ public class Karyawan extends javax.swing.JFrame {
             tampilkan();
             reset();
         } catch (SQLException ex) {
-            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Karyawan.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_edit_btnActionPerformed
 
