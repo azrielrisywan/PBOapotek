@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5fd7503-d247-47c8-ac85-8abdd4ec8a04" name="Default Changelist" comment="assjdnsjnks">
-      <change beforePath="$PROJECT_DIR$/src/Obat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transaksi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaksi.java" afterDir="false" />
+    <list default="true" id="e5fd7503-d247-47c8-ac85-8abdd4ec8a04" name="Default Changelist" comment="update frame">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Karyawan.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Karyawan.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Karyawan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Karyawan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +35,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jdbc.jar" />
@@ -45,19 +48,6 @@
     <configuration name="Obat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Obat" />
       <module name="Apotek" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,7 +67,9 @@
       <option name="presentableId" value="Default" />
       <updated>1641117614380</updated>
       <workItem from="1641117615631" duration="2597000" />
-      <workItem from="1641132557896" duration="7192000" />
+      <workItem from="1641132557896" duration="7882000" />
+      <workItem from="1641183019236" duration="331000" />
+      <workItem from="1641199018335" duration="991000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1641117667538</created>
@@ -100,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641145064914</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update frame">
+      <created>1641145527050</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641145527050</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="assjdnsjnks" />
-    <option name="LAST_COMMIT_MESSAGE" value="assjdnsjnks" />
+    <MESSAGE value="update frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="update frame" />
   </component>
 </project>

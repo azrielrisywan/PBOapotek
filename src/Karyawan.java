@@ -279,7 +279,7 @@ public class Karyawan extends javax.swing.JFrame {
             // TODO add your handling code here:
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            cn.createStatement().executeUpdate("update karyawan set nama = '"+namaKaryawan.getText()+"', alamat = '"+alamatKaryawan.getText()+"', kontak = '"+kontakKaryawan.getText()+"' where id ='"+idKaryawan.getText()+"'");
+            cn.createStatement().executeUpdate("update karyawan set nama = '"+namaKaryawan.getText()+"',kontak = '"+kontakKaryawan.getText()+"', alamat = '"+alamatKaryawan.getText()+"' where id ='"+idKaryawan.getText()+"'");
             tampilkan();
             reset();
         } catch (SQLException ex) {

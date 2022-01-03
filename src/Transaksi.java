@@ -27,9 +27,7 @@ public class Transaksi extends javax.swing.JFrame {
     DefaultTableModel model;
     public Transaksi() {
         initComponents();
-        String [] judul ={"ID Obat", "Nama Obat", "Expired", "Publisher", "Jenis Obat"};
-        model = new DefaultTableModel (judul,0);
-        tampilkan();
+
     }
 
     /**
