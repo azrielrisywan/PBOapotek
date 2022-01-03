@@ -17,61 +17,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 
 public class Transaksi extends javax.swing.JFrame {
-    
-
+   
+    DefaultTableModel model;
     /**
      * Creates new form Transaksi
-     */
-    DefaultTableModel tableModel = new DefaultTableModel();
-    
+     */    
     public Transaksi() {
         initComponents();
-        this.bindData();
-        listObatTersedia.setVisible(true);
+        String[] judul = {"ID", "Nama Obat"};
+        model = new DefaultTableModel(judul, 0);
+        listObatTersedia.setModel(model);
+        tampilkanDataObat();
     }
     
-    
-    private void bindData() {
-        int row = listObatTersedia.getRowCount();
-        for (int a = 0; a<row; a++){
-            tableModel.removeRow(0);
-        }
-        try {
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            ResultSet rs = cn.createStatement().executeQuery("SELECT id, nama_obat FROM obat");
-            while(rs.next()){
-                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)};
-                tableModel.addRow(data);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listObatTersedia.setModel(tableModel);
-    }
-    
-    private void searchFilter(String searchTerm) {
-        DefaultTableModel filteredItems = new DefaultTableModel();
-        try {
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            ResultSet rs = cn.createStatement().executeQuery("SELECT id, nama_obat FROM obat");
-            while(rs.next()){
-                String data []= {rs.getString(1),rs.getString(2)};
-                String nama = rs.getString(2).toLowerCase();
-                if(nama.contains(searchTerm.toLowerCase())) {
-                    filteredItems.addRow(data);
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        tableModel = filteredItems;
-        listObatTersedia.setModel(tableModel);
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -103,7 +66,7 @@ public class Transaksi extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jumlahObatDetailTransaksi = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabelDetailTransaksi = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         listObatTersedia = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
@@ -199,7 +162,7 @@ public class Transaksi extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelDetailTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -210,7 +173,7 @@ public class Transaksi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tabelDetailTransaksi);
 
         listObatTersedia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -406,7 +369,11 @@ public class Transaksi extends javax.swing.JFrame {
 
     private void namaObatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namaObatKeyReleased
         // TODO add your handling code here:
-        searchFilter(namaObat.getText());
+        DefaultTableModel filteredModel = (DefaultTableModel)listObatTersedia.getModel();
+        String search = namaObat.getText();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(filteredModel);
+        listObatTersedia.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(search));
     }//GEN-LAST:event_namaObatKeyReleased
 
     private void listObatTersediaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listObatTersediaMouseClicked
@@ -422,9 +389,9 @@ public class Transaksi extends javax.swing.JFrame {
     private void idObatDetailTransaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idObatDetailTransaksiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idObatDetailTransaksiActionPerformed
-private void reset(){
-    //
-}
+    private void reset(){
+        //
+    }
     /**
      * @param args the command line arguments
      */
@@ -483,22 +450,33 @@ private void reset(){
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jumlahObatDetailTransaksi;
     private javax.swing.JTable listObatTersedia;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JTextField namaObat;
     private javax.swing.JTextField namaObatDetailTransaksi;
     private javax.swing.JButton reset_btn;
+    private javax.swing.JTable tabelDetailTransaksi;
     private javax.swing.JMenu tambahKaryawan;
     private javax.swing.JMenu tambahObat;
     private javax.swing.JButton tambahbtn;
     // End of variables declaration//GEN-END:variables
 
-   
-
-    private void tampilkan() {
-        //
+    private void tampilkanDataObat() {
+        int row = listObatTersedia.getRowCount();
+        for (int a = 0; a<row; a++){
+            model.removeRow(0);
+        }
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            ResultSet rs = cn.createStatement().executeQuery("SELECT id, nama_obat FROM obat");
+            while(rs.next()){
+                String data []= {rs.getString(1), rs.getString(2)};
+                model.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    // eeeeee
 }
