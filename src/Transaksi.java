@@ -22,7 +22,7 @@ public class Transaksi extends javax.swing.JFrame {
     
 
     /**
-     * Creates new form Obat
+     * Creates new form Transaksi
      */
     public Transaksi() {
         initComponents();
@@ -134,20 +134,20 @@ public class Transaksi extends javax.swing.JFrame {
 
         jLabel1.setText("Cari");
 
-        jTextField2.setText("jTextField2");
-
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         jLabel8.setText("Obat Tersedia");
 
         jLabel3.setText("id");
 
-        jTextField3.setText("jTextField2");
-
         jLabel4.setText("nama");
 
         jLabel5.setText("jumlah");
 
-        jTextField4.setText("jTextField2");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,6 +325,10 @@ public class Transaksi extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 private void reset(){
     //
 }
