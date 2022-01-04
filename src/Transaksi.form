@@ -124,7 +124,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="tambahbtn" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tambahDetails" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                       <Component id="edit_btn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -192,7 +192,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tambahbtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tambahDetails" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="edit_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tambahbtn1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -216,12 +216,12 @@
         <Property name="text" type="java.lang.String" value="APOTEK MAJU TERUS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="tambahbtn">
+    <Component class="javax.swing.JButton" name="tambahDetails">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tambah Barang"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahbtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tambahDetailsActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="edit_btn">

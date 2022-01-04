@@ -22,15 +22,19 @@ import javax.swing.table.TableRowSorter;
 
 public class Transaksi extends javax.swing.JFrame {
    
-    DefaultTableModel model;
+    DefaultTableModel modelTabelObat;
+    DefaultTableModel modelTabelDetailTransaksi;
     /**
      * Creates new form Transaksi
      */    
     public Transaksi() {
         initComponents();
-        String[] judul = {"ID", "Nama Obat"};
-        model = new DefaultTableModel(judul, 0);
-        listObatTersedia.setModel(model);
+        String[] judulTabelObat = {"ID", "Nama Obat"};
+        String[] judulTabelDetailTransaksi = {"ID Obat", "Nama Obat", "Jumlah"};
+        modelTabelObat = new DefaultTableModel(judulTabelObat, 0);
+        modelTabelDetailTransaksi = new DefaultTableModel(judulTabelDetailTransaksi, 0);
+        tabelDetailTransaksi.setModel(modelTabelDetailTransaksi);
+        listObatTersedia.setModel(modelTabelObat);
         tampilkanDataObat();
     }
     
@@ -51,7 +55,7 @@ public class Transaksi extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        tambahbtn = new javax.swing.JButton();
+        tambahDetails = new javax.swing.JButton();
         edit_btn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         namaObat = new javax.swing.JTextField();
@@ -96,10 +100,10 @@ public class Transaksi extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("APOTEK MAJU TERUS");
 
-        tambahbtn.setText("Tambah Barang");
-        tambahbtn.addActionListener(new java.awt.event.ActionListener() {
+        tambahDetails.setText("Tambah Barang");
+        tambahDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tambahbtnActionPerformed(evt);
+                tambahDetailsActionPerformed(evt);
             }
         });
 
@@ -239,7 +243,7 @@ public class Transaksi extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(tambahbtn)
+                                        .addComponent(tambahDetails)
                                         .addGap(42, 42, 42)
                                         .addComponent(edit_btn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -292,7 +296,7 @@ public class Transaksi extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tambahbtn)
+                                    .addComponent(tambahDetails)
                                     .addComponent(edit_btn)
                                     .addComponent(tambahbtn1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)))
@@ -303,9 +307,29 @@ public class Transaksi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tambahbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahbtnActionPerformed
+    private void tambahDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahDetailsActionPerformed
         //
-    }//GEN-LAST:event_tambahbtnActionPerformed
+//        try {
+//            // TODO add your handling code here
+//            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+//            cn.createStatement().executeUpdate ("INSERT INTO transaksi_details VALUES" + "(null,'"+idObatDetailTransaksi.getText()+"', '"+jumlahObatDetailTransaksi.getText()+"')");
+//            tampilkanDetailTransaksi();
+//            reset();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, ex.getMessage());
+//        }
+//        int row = tabelDetailTransaksi.getRowCount();
+//        for (int a = 0; a<row; a++){
+//            modelTabelDetailTransaksi.removeRow(0);
+//        }
+
+        String idObat = idObatDetailTransaksi.getText();
+        String namaObat = namaObatDetailTransaksi.getText();
+        String jumlahObat = jumlahObatDetailTransaksi.getText();
+        String[] data = {idObat, namaObat, jumlahObat};
+        modelTabelDetailTransaksi.addRow(data);
+    }//GEN-LAST:event_tambahDetailsActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
         //
@@ -438,16 +462,16 @@ public class Transaksi extends javax.swing.JFrame {
     private javax.swing.JTextField namaObat;
     private javax.swing.JTextField namaObatDetailTransaksi;
     private javax.swing.JTable tabelDetailTransaksi;
+    private javax.swing.JButton tambahDetails;
     private javax.swing.JMenu tambahKaryawan;
     private javax.swing.JMenu tambahObat;
-    private javax.swing.JButton tambahbtn;
     private javax.swing.JButton tambahbtn1;
     // End of variables declaration//GEN-END:variables
 
     private void tampilkanDataObat() {
         int row = listObatTersedia.getRowCount();
         for (int a = 0; a<row; a++){
-            model.removeRow(0);
+            modelTabelObat.removeRow(0);
         }
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
@@ -455,10 +479,30 @@ public class Transaksi extends javax.swing.JFrame {
             ResultSet rs = cn.createStatement().executeQuery("SELECT id, nama_obat FROM obat");
             while(rs.next()){
                 String data []= {rs.getString(1), rs.getString(2)};
-                model.addRow(data);
+                modelTabelObat.addRow(data);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private void tampilkanDetailTransaksi() {
+        int row = tabelDetailTransaksi.getRowCount();
+        for (int a = 0; a<row; a++){
+            modelTabelDetailTransaksi.removeRow(0);
+        }
+//        try {
+//            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+//            ResultSet rs = cn.createStatement().executeQuery("SELECT transaksi_details.obat_id, obat.nama_obat, transaksi_details.jumlah "
+//                                                           + "FROM transaksi_details "
+//                                                           + "INNER JOIN obat ON transaksi_details.obat_id = obat.id");
+//            while(rs.next()){
+//                String data []= {rs.getString(1), rs.getString(2), rs.getString(3)};
+//                modelTabelDetailTransaksi.addRow(data);
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 }
