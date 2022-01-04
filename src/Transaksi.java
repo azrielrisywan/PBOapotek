@@ -162,6 +162,11 @@ public class Transaksi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tabelDetailTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelDetailTransaksiMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabelDetailTransaksi);
 
         listObatTersedia.setModel(new javax.swing.table.DefaultTableModel(
@@ -244,9 +249,9 @@ public class Transaksi extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(tambahDetails)
-                                        .addGap(42, 42, 42)
-                                        .addComponent(edit_btn)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(edit_btn)
+                                        .addGap(27, 27, 27)
                                         .addComponent(tambahbtn1))
                                     .addComponent(idObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(namaObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,6 +334,15 @@ public class Transaksi extends javax.swing.JFrame {
         String jumlahObat = jumlahObatDetailTransaksi.getText();
         String[] data = {idObat, namaObat, jumlahObat};
         modelTabelDetailTransaksi.addRow(data);
+        try{
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            // INSERT DATA TO TRANSAKSI 
+            cn.createStatement().executeUpdate("insert into cart(nama_obat,jumlah_obat) values('"+ namaObat + "','" + jumlahObat + "')");
+            
+        }catch (SQLException ex){
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tambahDetailsActionPerformed
 
     private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
@@ -376,7 +390,7 @@ public class Transaksi extends javax.swing.JFrame {
         String search = namaObat.getText();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(filteredModel);
         listObatTersedia.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(search));
+        tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
     }//GEN-LAST:event_namaObatKeyReleased
 
     private void listObatTersediaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listObatTersediaMouseClicked
@@ -395,7 +409,85 @@ public class Transaksi extends javax.swing.JFrame {
 
     private void tambahbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahbtn1ActionPerformed
         // TODO add your handling code here:
+        
+
+        
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            
+            // Ambil Data From DB Cart
+            int i = 1;
+            int harga;
+            String[] getNamaObat;
+            
+            // CEK JUMLAH STOCK
+            String namaObat = namaObatDetailTransaksi.getText();
+
+            
+            // Hitung Perkalian
+            int hargaTotal = 0;
+            ResultSet cartStatement = cn.createStatement().executeQuery("SELECT nama_obat FROM cart");
+            while(cartStatement.next()){
+                 String[] tempNamaObat  = {cartStatement.getString(1)};
+                 for(String strTemp : tempNamaObat){
+                    ResultSet getJumlahObat = cn.createStatement().executeQuery("SELECT jumlah_obat FROM cart WHERE nama_obat = '" + strTemp +"'");
+                    while(getJumlahObat.next()){
+                        int cartJumlahObat = getJumlahObat.getInt(1);
+                        ResultSet rs = cn.createStatement().executeQuery("SELECT harga_satuan FROM obat WHERE nama_obat = '" + strTemp +"'");
+                        while(rs.next()){
+                            harga = rs.getInt(1)*cartJumlahObat;
+                            hargaTotal += harga;
+                            ResultSet stock_obat = cn.createStatement().executeQuery("SELECT jumlah_stok FROM obat WHERE nama_obat = '" + strTemp +"'");
+                            while(stock_obat.next()){
+                                int obatStockJumlahObat = stock_obat.getInt(1);
+                                int newStock = obatStockJumlahObat - cartJumlahObat;
+                                System.out.println("Check Stock " + strTemp + " "+ newStock);
+                                int updateStockObat = cn.createStatement().executeUpdate("UPDATE OBAT SET jumlah_stok = '" + newStock +"' WHERE nama_obat = '" + strTemp +"'  ");                                
+                            }
+                        }
+                    }
+                 }
+            }
+            
+            // Tampilkan JOPtionPane
+            JOptionPane.showMessageDialog(null, "Total Transaki Nama Obat "+ " : " +  hargaTotal);
+//            JOptionPane.showMessageDialog(null, "Total Transaki Nama Obat "+ " : " +  newStock);
+            
+           
+            
+            
+                    
+
+    
+
+            
+            
+//            int cartJumlahObat = Integer.parseInt(jumlahObat);
+//            
+//            ResultSet rs = cn.createStatement().executeQuery("SELECT harga_satuan FROM obat WHERE nama_obat = '" + namaObat +"'");
+            
+           
+//            while(rs.next()){
+//                
+//                System.out.println(rs.getInt(1));
+//                harga = rs.getInt(1)*cartJumlahObat;
+//                System.out.println("Harga Total " +namaObat + ": " + harga);
+//            }
+            
+
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_tambahbtn1ActionPerformed
+
+    private void tabelDetailTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDetailTransaksiMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabelDetailTransaksiMouseClicked
     private void reset(){
         //
     }
