@@ -25,7 +25,7 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
-        String[] judulTabelObat = {"Nama Obat", "Expired", "Publisher", "Jenis Obat"};
+        String[] judulTabelObat = {"Nama Obat", "Expired", "Publisher", "Jenis Obat", "Jumlah", "Harga Satuan"};
         String[] judulTabelKaryawan = {"ID Karyawan", "Nama Karyawan", "Kontak", "Alamat"};
         modelTableKaryawan = new DefaultTableModel(judulTabelKaryawan, 0);
         modelTableObat = new DefaultTableModel(judulTabelObat, 0);
@@ -45,7 +45,7 @@ public class Dashboard extends javax.swing.JFrame {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             ResultSet rs = cn.createStatement().executeQuery("SELECT * FROM obat");
             while(rs.next()){
-                String data []= {rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
+                String data []= {rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7)};
                 modelTableObat.addRow(data);
             }
         } catch (SQLException ex) {
@@ -196,14 +196,14 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
