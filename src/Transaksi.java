@@ -102,6 +102,14 @@ public class Transaksi extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("APOTEK MAJU TERUS");
@@ -202,7 +210,7 @@ public class Transaksi extends javax.swing.JFrame {
             }
         });
 
-        update_btn.setText("Update");
+        update_btn.setText("Update Jumlah");
         update_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 update_btnActionPerformed(evt);
@@ -282,7 +290,7 @@ public class Transaksi extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(namaObat, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -348,9 +356,7 @@ public class Transaksi extends javax.swing.JFrame {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
             // INSERT DATA TO TRANSAKSI
             cn.createStatement().executeUpdate("insert into cart(nama_obat,jumlah_obat) values('"+ namaObat + "','" + jumlahObat + "')");
-            idObatDetailTransaksi.setText(null);
-            namaObatDetailTransaksi.setText(null);
-            jumlahObatDetailTransaksi.setText(null);
+            reset();
 //            ResultSet getIdCart = cn.createStatement().executeQuery("SELECT id_cart from cart");
 //            getIdCart.next();
 //            getIdCart.getString(1);
@@ -499,8 +505,7 @@ public class Transaksi extends javax.swing.JFrame {
             }
             // Delete Temp DB cart 
 //            cn.createStatement().executeUpdate("ALTER TABLE cart AUTO_INCREMENT = 1");
-            Statement s = cn.createStatement();
-            int executeUpdate = s.executeUpdate("ALTER TABLE cart AUTO_INCREMENT = 1");
+            Statement s = cn.createStatement();            
             cn.createStatement().executeUpdate("DELETE FROM cart");
             //Reset TextField
             idObatDetailTransaksi.setText(null);
@@ -528,13 +533,64 @@ public class Transaksi extends javax.swing.JFrame {
 
     private void tabelDetailTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDetailTransaksiMouseClicked
         // TODO add your handling code here:
+        int i = tabelDetailTransaksi.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tabelDetailTransaksi.getModel();
+  
+        if(i>-1){
+            idObatDetailTransaksi.setText(model.getValueAt(i, 0).toString());
+            namaObatDetailTransaksi.setText(model.getValueAt(i, 1).toString());
+            jumlahObatDetailTransaksi.setText(model.getValueAt(i, 2).toString());
+        }
     }//GEN-LAST:event_tabelDetailTransaksiMouseClicked
 
     private void update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btnActionPerformed
         // TODO add your handling code here:
+        try{
+        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+        int batas = tabelDetailTransaksi.getRowCount();
+        for (int x=0;x<batas;x++){
+            String getValueIdCart = String.valueOf(tabelDetailTransaksi.getValueAt(x,0));
+            cn.createStatement().executeUpdate("UPDATE cart SET jumlah_obat = '" + jumlahObatDetailTransaksi.getText()+ "' WHERE id_cart = '" + idObatDetailTransaksi.getText() + "'");
+        }
+        
+        reset();
+        refresh();
+        
+        }catch(Exception E){
+            
+        }
     }//GEN-LAST:event_update_btnActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        try{
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            Statement s = cn.createStatement(); 
+            int executeUpdate = s.executeUpdate("ALTER TABLE cart AUTO_INCREMENT = 1");
+        }catch (SQLException ex){
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+          try{
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            Statement s = cn.createStatement(); 
+            int executeUpdate = s.executeUpdate("ALTER TABLE cart AUTO_INCREMENT = 1");
+        }catch (SQLException ex){
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
     private void reset(){
-        //
+        //            
+        idObatDetailTransaksi.setText(null);
+        namaObatDetailTransaksi.setText(null);
+        jumlahObatDetailTransaksi.setText(null);
     }
     /**
      * @param args the command line arguments
@@ -642,5 +698,22 @@ public class Transaksi extends javax.swing.JFrame {
 //        } catch (SQLException ex) {
 //            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+    }
+    private void refresh(){
+        int row = tabelDetailTransaksi.getRowCount();
+        for (int a = 0; a<row; a++){
+            modelTabelDetailTransaksi.removeRow(0);
+        }
+          try{
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            ResultSet ref = cn.createStatement().executeQuery("SELECT * FROM cart");
+            while(ref.next()){
+                String data [] = {ref.getString(1),ref.getString(2),ref.getString(3)};
+                modelTabelDetailTransaksi.addRow(data);
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
