@@ -7,6 +7,9 @@
  *
  * @author hp
  */
+import java.text.NumberFormat;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,13 +27,15 @@ public class Transaksi extends javax.swing.JFrame {
    
     DefaultTableModel modelTabelObat;
     DefaultTableModel modelTabelDetailTransaksi;
+    public int count = 0;
     /**
      * Creates new form Transaksi
      */    
+    
     public Transaksi() {
         initComponents();
         String[] judulTabelObat = {"ID", "Nama Obat"};
-        String[] judulTabelDetailTransaksi = {"ID Obat", "Nama Obat", "Jumlah"};
+        String[] judulTabelDetailTransaksi = {"ID Transaksi", "Nama Obat", "Jumlah"};
         modelTabelObat = new DefaultTableModel(judulTabelObat, 0);
         modelTabelDetailTransaksi = new DefaultTableModel(judulTabelDetailTransaksi, 0);
         tabelDetailTransaksi.setModel(modelTabelDetailTransaksi);
@@ -56,7 +61,7 @@ public class Transaksi extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         tambahDetails = new javax.swing.JButton();
-        edit_btn = new javax.swing.JButton();
+        delete_btn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         namaObat = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -73,6 +78,7 @@ public class Transaksi extends javax.swing.JFrame {
         listObatTersedia = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         tambahbtn1 = new javax.swing.JButton();
+        update_btn = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         dashboard = new javax.swing.JMenu();
         tambahObat = new javax.swing.JMenu();
@@ -107,10 +113,10 @@ public class Transaksi extends javax.swing.JFrame {
             }
         });
 
-        edit_btn.setText("Edit");
-        edit_btn.addActionListener(new java.awt.event.ActionListener() {
+        delete_btn.setText("Delete");
+        delete_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit_btnActionPerformed(evt);
+                delete_btnActionPerformed(evt);
             }
         });
 
@@ -196,6 +202,13 @@ public class Transaksi extends javax.swing.JFrame {
             }
         });
 
+        update_btn.setText("Update");
+        update_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_btnActionPerformed(evt);
+            }
+        });
+
         menuBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         dashboard.setText("Dashboard");
@@ -236,27 +249,32 @@ public class Transaksi extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(280, 280, 280)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(tambahDetails)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(edit_btn)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(tambahbtn1))
-                                    .addComponent(idObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(namaObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jumlahObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(tambahDetails)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(tambahbtn1))
+                                            .addComponent(idObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(namaObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jumlahObatDetailTransaksi, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(delete_btn)
+                                .addGap(124, 124, 124)
+                                .addComponent(update_btn))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,8 +301,8 @@ public class Transaksi extends javax.swing.JFrame {
                                     .addComponent(namaObat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGap(42, 42, 42))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                                .addGap(168, 168, 168))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(41, 41, 41)
@@ -302,11 +320,15 @@ public class Transaksi extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(tambahDetails)
-                                    .addComponent(edit_btn)
                                     .addComponent(tambahbtn1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(delete_btn)
+                                    .addComponent(update_btn))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -314,40 +336,55 @@ public class Transaksi extends javax.swing.JFrame {
 
     private void tambahDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahDetailsActionPerformed
         //
-//        try {
-//            // TODO add your handling code here
-//            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-//            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-//            cn.createStatement().executeUpdate ("INSERT INTO transaksi_details VALUES" + "(null,'"+idObatDetailTransaksi.getText()+"', '"+jumlahObatDetailTransaksi.getText()+"')");
-//            tampilkanDetailTransaksi();
-//            reset();
-//        } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, ex.getMessage());
-//        }
-//        int row = tabelDetailTransaksi.getRowCount();
-//        for (int a = 0; a<row; a++){
-//            modelTabelDetailTransaksi.removeRow(0);
-//        }
-
         String idObat = idObatDetailTransaksi.getText();
         String namaObat = namaObatDetailTransaksi.getText();
         String jumlahObat = jumlahObatDetailTransaksi.getText();
-        String[] data = {idObat, namaObat, jumlahObat};
-        modelTabelDetailTransaksi.addRow(data);
+        if (jumlahObatDetailTransaksi.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Jumlah Obat Tidak Boleh Kosong !!!!!");
+        } else {
+
         try{
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
-            // INSERT DATA TO TRANSAKSI 
+            // INSERT DATA TO TRANSAKSI
             cn.createStatement().executeUpdate("insert into cart(nama_obat,jumlah_obat) values('"+ namaObat + "','" + jumlahObat + "')");
+            idObatDetailTransaksi.setText(null);
+            namaObatDetailTransaksi.setText(null);
+            jumlahObatDetailTransaksi.setText(null);
+//            ResultSet getIdCart = cn.createStatement().executeQuery("SELECT id_cart from cart");
+//            getIdCart.next();
+//            getIdCart.getString(1);
+            DefaultTableModel model = (DefaultTableModel) tabelDetailTransaksi.getModel();
+            count++;
+            String[] data = {String.valueOf(count),namaObat,jumlahObat};
+            modelTabelDetailTransaksi.addRow(data); 
             
+            
+
+            
+
         }catch (SQLException ex){
             Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
+       }
     }//GEN-LAST:event_tambahDetailsActionPerformed
 
-    private void edit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btnActionPerformed
+    private void delete_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btnActionPerformed
         //
-    }//GEN-LAST:event_edit_btnActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabelDetailTransaksi.getModel();
+        boolean deleted = true;
+          try{
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            int SelectedRowIndex = tabelDetailTransaksi.getSelectedRow();
+            int rowSQL = SelectedRowIndex+1;
+            String cell = tabelDetailTransaksi.getModel().getValueAt(SelectedRowIndex,0).toString();
+            cn.createStatement().executeUpdate("DELETE FROM cart WHERE id_cart = '" + cell +"'");
+            model.removeRow(SelectedRowIndex);
+        }catch (SQLException ex){
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_delete_btnActionPerformed
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
         // TODO add your handling code here:
@@ -409,9 +446,6 @@ public class Transaksi extends javax.swing.JFrame {
 
     private void tambahbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahbtn1ActionPerformed
         // TODO add your handling code here:
-        
-
-        
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
@@ -421,11 +455,8 @@ public class Transaksi extends javax.swing.JFrame {
             int harga;
             String[] getNamaObat;
             
-            // CEK JUMLAH STOCK
-            String namaObat = namaObatDetailTransaksi.getText();
-
-            
             // Hitung Perkalian
+            boolean done = false;
             int hargaTotal = 0;
             ResultSet cartStatement = cn.createStatement().executeQuery("SELECT nama_obat FROM cart");
             while(cartStatement.next()){
@@ -440,44 +471,54 @@ public class Transaksi extends javax.swing.JFrame {
                             hargaTotal += harga;
                             ResultSet stock_obat = cn.createStatement().executeQuery("SELECT jumlah_stok FROM obat WHERE nama_obat = '" + strTemp +"'");
                             while(stock_obat.next()){
-                                int obatStockJumlahObat = stock_obat.getInt(1);
-                                int newStock = obatStockJumlahObat - cartJumlahObat;
-                                System.out.println("Check Stock " + strTemp + " "+ newStock);
-                                int updateStockObat = cn.createStatement().executeUpdate("UPDATE OBAT SET jumlah_stok = '" + newStock +"' WHERE nama_obat = '" + strTemp +"'  ");                                
+                                // CEK JUMLAH STOCK
+                                if(stock_obat.getInt(1)!=0){
+                                    int obatStockJumlahObat = stock_obat.getInt(1);
+                                    int newStock = obatStockJumlahObat - cartJumlahObat;
+//                                    System.out.println("Check Stock " + strTemp + " "+ newStock);
+                                    int updateStockObat = cn.createStatement().executeUpdate("UPDATE OBAT SET jumlah_stok = '" + newStock +"' WHERE nama_obat = '" + strTemp +"'  ");                                
+                                }else{
+                                    JOptionPane.showMessageDialog(null, "Stock Habis");
+                                }
+                                // Update DB transaksi        
+                                int batas = tabelDetailTransaksi.getRowCount();
+                                for (int x=0;x<batas;x++){
+                                    String getValueRowNamaObat = String.valueOf(tabelDetailTransaksi.getValueAt(x,1));
+                                    ResultSet getIdObat = cn.createStatement().executeQuery("SELECT id FROM obat WHERE nama_obat = '"+getValueRowNamaObat+"'");
+                                    System.out.println(getIdObat);
+                                    while(getIdObat.next()){
+                                    int insertTransaksi = cn.createStatement().executeUpdate("INSERT INTO transaksi(id_obat,total_bayar,jumlah) values('"+ getIdObat.getInt(1) + "','" + hargaTotal + "','" + cartJumlahObat + "')");
+                                    System.out.println(insertTransaksi);
+                                    }
+                                    
+                                }
                             }
                         }
                     }
                  }
             }
+            // Delete Temp DB cart 
+//            cn.createStatement().executeUpdate("ALTER TABLE cart AUTO_INCREMENT = 1");
+            Statement s = cn.createStatement();
+            int executeUpdate = s.executeUpdate("ALTER TABLE cart AUTO_INCREMENT = 1");
+            cn.createStatement().executeUpdate("DELETE FROM cart");
+            //Reset TextField
+            idObatDetailTransaksi.setText(null);
+            namaObatDetailTransaksi.setText(null);
+            jumlahObatDetailTransaksi.setText(null);
+            // Tampilkan JOPtionPane Harga Total
             
-            // Tampilkan JOPtionPane
-            JOptionPane.showMessageDialog(null, "Total Transaki Nama Obat "+ " : " +  hargaTotal);
-//            JOptionPane.showMessageDialog(null, "Total Transaki Nama Obat "+ " : " +  newStock);
+            DecimalFormat currencyIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+            DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
             
-           
-            
-            
-                    
+            formatRp.setCurrencySymbol("Rp. ");
+            formatRp.setMonetaryDecimalSeparator(',');
+            formatRp.setGroupingSeparator('.');
 
-    
-
-            
-            
-//            int cartJumlahObat = Integer.parseInt(jumlahObat);
-//            
-//            ResultSet rs = cn.createStatement().executeQuery("SELECT harga_satuan FROM obat WHERE nama_obat = '" + namaObat +"'");
-            
-           
-//            while(rs.next()){
-//                
-//                System.out.println(rs.getInt(1));
-//                harga = rs.getInt(1)*cartJumlahObat;
-//                System.out.println("Harga Total " +namaObat + ": " + harga);
-//            }
-            
-
-            
-            
+            currencyIndonesia.setDecimalFormatSymbols(formatRp);
+            JOptionPane.showMessageDialog(null, "Total Transaki Obat : " + currencyIndonesia.format(hargaTotal));
+            DefaultTableModel model = (DefaultTableModel) tabelDetailTransaksi.getModel();
+            model.setRowCount(0);
         } catch (SQLException ex) {
             Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -488,6 +529,10 @@ public class Transaksi extends javax.swing.JFrame {
     private void tabelDetailTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDetailTransaksiMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tabelDetailTransaksiMouseClicked
+
+    private void update_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_update_btnActionPerformed
     private void reset(){
         //
     }
@@ -531,7 +576,7 @@ public class Transaksi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu dashboard;
-    private javax.swing.JButton edit_btn;
+    private javax.swing.JButton delete_btn;
     private javax.swing.JTextField idObatDetailTransaksi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -558,6 +603,7 @@ public class Transaksi extends javax.swing.JFrame {
     private javax.swing.JMenu tambahKaryawan;
     private javax.swing.JMenu tambahObat;
     private javax.swing.JButton tambahbtn1;
+    private javax.swing.JButton update_btn;
     // End of variables declaration//GEN-END:variables
 
     private void tampilkanDataObat() {
