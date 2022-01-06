@@ -34,6 +34,7 @@ public class Transaksi extends javax.swing.JFrame {
     
     public Transaksi() {
         initComponents();
+        setResizable(false);
         String[] judulTabelObat = {"ID", "Nama Obat"};
         String[] judulTabelDetailTransaksi = {"ID Transaksi", "Nama Obat", "Jumlah"};
         modelTabelObat = new DefaultTableModel(judulTabelObat, 0);

@@ -33,6 +33,7 @@ public class Obat extends javax.swing.JFrame {
         String [] judul ={"ID Obat","Nama Obat", "Expired", "Publisher", "Jenis Obat", "Jumlah", "Harga Satuan"};
         model = new DefaultTableModel (judul,0);
         listObatTersedia.setModel(model);
+        setResizable(false);
         tampilkan();
     }
 

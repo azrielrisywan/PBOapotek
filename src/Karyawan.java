@@ -27,6 +27,7 @@ public class Karyawan extends javax.swing.JFrame {
     DefaultTableModel model;
     public Karyawan() {
         initComponents();
+        setResizable(false);
         String [] judul ={"ID Karyawan", "Nama Karyawan", "Kontak", "Alamat"};
         model = new DefaultTableModel (judul,0);
         tabel.setModel(model);

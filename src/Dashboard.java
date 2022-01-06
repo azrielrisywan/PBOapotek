@@ -26,6 +26,7 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
+        setResizable(false);
         String[] judulTabelObat = {"Nama Obat", "Expired", "Publisher", "Jenis Obat", "Jumlah", "Harga Satuan"};
         String[] judulTabelKaryawan = {"ID Karyawan", "Nama Karyawan", "Kontak", "Alamat"};
         String[] judulTabelDataTransaksi = {"ID Transaksi","Nama Obat","Tanggal Order","Jumlah Order","Harga Satuan Obat"};
