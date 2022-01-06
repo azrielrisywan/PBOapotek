@@ -6,8 +6,69 @@
   <component name="ChangeListManager">
     <list default="true" id="e5fd7503-d247-47c8-ac85-8abdd4ec8a04" name="Default Changelist" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Karyawan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Karyawan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transaksi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaksi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Dashboard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Dashboard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Dashboard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Dashboard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Dashboard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Dashboard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Dashboard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Dashboard$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Dashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Dashboard.form" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Dashboard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Karyawan.form" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Karyawan.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Obat.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Obat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/Transaksi.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/Transaksi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Dashboard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Dashboard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Dashboard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Dashboard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Dashboard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Dashboard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Dashboard$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Dashboard$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Dashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Apotek/Transaksi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Apotek/Transaksi.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +130,7 @@
       <workItem from="1641132557896" duration="7882000" />
       <workItem from="1641183019236" duration="331000" />
       <workItem from="1641199018335" duration="2491000" />
+      <workItem from="1641439680115" duration="808000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1641117667538</created>
@@ -105,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641203834493</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update">
+      <created>1641439773227</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1641439773227</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
