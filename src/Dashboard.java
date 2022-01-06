@@ -20,6 +20,7 @@ public class Dashboard extends javax.swing.JFrame {
     
     DefaultTableModel modelTableObat;
     DefaultTableModel modelTableKaryawan;
+    DefaultTableModel modelTableDataTransaksi;
     /**
      * Creates new form Dashboard
      */
@@ -27,12 +28,16 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         String[] judulTabelObat = {"Nama Obat", "Expired", "Publisher", "Jenis Obat", "Jumlah", "Harga Satuan"};
         String[] judulTabelKaryawan = {"ID Karyawan", "Nama Karyawan", "Kontak", "Alamat"};
+        String[] judulTabelDataTransaksi = {"ID Transaksi","Nama Obat","Tanggal Order","Jumlah Order","Harga Satuan Obat"};
         modelTableKaryawan = new DefaultTableModel(judulTabelKaryawan, 0);
         modelTableObat = new DefaultTableModel(judulTabelObat, 0);
+        modelTableDataTransaksi = new DefaultTableModel(judulTabelDataTransaksi,0);
         tabelDataObat.setModel(modelTableObat);
         tabelDataKaryawan.setModel(modelTableKaryawan);
+        tabelDataTransaksi.setModel(modelTableDataTransaksi);
         tampilkanDataObat();
         tampilkanDataKaryawan();
+        tampilkanDataTransaksi();
     }
     
     private void tampilkanDataObat() {
@@ -65,6 +70,24 @@ public class Dashboard extends javax.swing.JFrame {
             while(rs.next()){
                 String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4)};
                 modelTableKaryawan.addRow(data);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void tampilkanDataTransaksi(){
+        int row = modelTableDataTransaksi.getRowCount();
+        for (int a = 0; a<row; a++){
+            modelTableDataTransaksi.removeRow(0);
+        }
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/apotek", "root", "");
+            ResultSet rs = cn.createStatement().executeQuery("SELECT transaksi.id, obat.nama_obat, transaksi.tanggal_order, transaksi.jumlah, obat.harga_satuan FROM transaksi INNER JOIN obat ON obat.id = transaksi.id_obat ORDER BY tanggal_order ASC");
+            while(rs.next()){
+                String data []= {rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)};
+                modelTableDataTransaksi.addRow(data);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Obat.class.getName()).log(Level.SEVERE, null, ex);
