@@ -1,4 +1,4 @@
-# Tubes PBO semester 3 boyyyy
+# Tubes PBO semester 3
 Aplikasi manajemen apotek sederhana
 
 Isinya :
